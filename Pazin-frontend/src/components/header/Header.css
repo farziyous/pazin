@@ -1,0 +1,100 @@
+.header-container {
+    height: 130px;
+    box-shadow: 0px 0px 6px #0a423b;
+    margin-bottom: 10px;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60%;
+
+        img {
+            margin: 20px;
+            margin-top: 30px;
+            width: 70px;
+        }
+    }
+
+    .bottom {
+        height: 40%;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding-right: 30px;
+
+        .collection-links-drop-down {
+            display: none;
+        }
+
+        .collection-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a423b;
+            font-size: 20px;
+
+            &:hover {
+                border-bottom: 2px #0a423b solid;
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .bottom {
+            .collection-links {
+                display: none;
+            }
+
+            a {
+                font-size: 18px;
+            }
+
+            .collection-links-drop-down {
+                display: flex;
+                flex-direction: column;
+
+                .drop-down-svg {
+                    width: 50px;
+                }
+
+                .drop-down-list {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 130px;
+                    background: white;
+                    padding-right: 20px;
+                    padding: 20px;
+                    border: #0a423b 1px solid;
+                    border-radius: 10px;
+                    right: -200px;
+                    transition: 0.3s;
+                    z-index: 2;
+
+                    .drop-link {
+                        width: fit-content;
+                    }
+                }
+
+                &:hover .drop-down-list {
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .bottom {
+            gap: 14px;
+
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.container-not-found-page {
+    height: 310px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .not-found-title {
+        font-size: 40px;
+        color: #0a423b;
+    }
+
+    @media (max-width: 450px) {
+
+        .not-found-title {
+            font-size: 30px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.container-blogs-page {
+    direction: rtl;
+    padding: 40px clamp(16px, 5vw, 80px);
+    max-width: 1600px;
+    margin-inline: auto;
+
+    .blogs-title {
+        text-align: center;
+        font-size: clamp(28px, 5vw, 50px);
+        color: #0a423b;
+        margin-bottom: 30px;
+    }
+
+    .blogs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+    }
+}

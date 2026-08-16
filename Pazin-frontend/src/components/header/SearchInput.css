@@ -1,0 +1,52 @@
+.search {
+    position: relative;
+
+    input {
+        margin-left: 20px;
+        width: 350px;
+        padding: 10px;
+        border: #0a423b 1px solid;
+        border-radius: 10px;
+        color: #0a423b;
+        font-size: 16px;
+
+        &::placeholder {
+            color: #0a423b;
+            font-size: 20px;
+        }
+    }
+
+    .search-svg {
+        position: absolute;
+        top: 9px;
+        right: 19%;
+    }
+
+    @media (max-width: 550px) {
+
+        input {
+            width: 300px;
+        }
+
+        .search-svg {
+            right: 22%;
+        }
+    }
+
+    @media (max-width: 430px) {
+
+        input {
+            width: 200px;
+            font-size: 14px;
+            margin-left: 10px;
+
+            &::placeholder {
+                font-size: 18px;
+            }
+        }
+
+        .search-svg {
+            right: 30%;
+        }
+    }
+}
