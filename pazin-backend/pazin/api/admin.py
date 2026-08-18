@@ -9,7 +9,7 @@ class ImageInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'price', 'default_image')
+    list_display = ('title', 'category', 'default_image')
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ImageInline]
 

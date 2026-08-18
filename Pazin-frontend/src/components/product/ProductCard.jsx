@@ -17,12 +17,6 @@ export const ProductCard = ({ product }) => {
                     <Link to={`/product?product=${product.slug}`} className="follow-link">
                         نمایش
                     </Link>
-                    <p className='product-price-p'>
-                        <span className="product-price">
-                            {(product.price).toLocaleString('fa-IR')}
-                        </span>
-                        <span className="product-price-unit">تومان</span>
-                    </p>
                 </div>
             </div>
         </div>

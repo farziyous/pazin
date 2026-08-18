@@ -35,12 +35,6 @@ export function SwiperCon({ breakpoints, space, images, isBanner }) {
                     <img src={image.default_image.path} alt={image.title} className='swiper-img' />
                   </Link>
                   <p className='name'>{image.title}</p>
-                  <p className='price'>
-                    <span className="product-price">
-                      {(image.price).toLocaleString('fa-IR')}
-                    </span>
-                    <span className="product-price-unit">تومان</span>
-                  </p>
                   <Link to={`/product?product=${image.slug}`} className='follow-link'>نمایش</Link>
                 </div>
               </SwiperSlide>

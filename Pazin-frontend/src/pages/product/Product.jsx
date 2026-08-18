@@ -88,12 +88,6 @@ export const Product = ({ categories, loading }) => {
                 <div className="right">
                     <h1 className='product-title'>{product.title}</h1>
                     <p className='product-des'>{product.description}</p>
-                    <div className="product-price-row">
-                        <span className="product-price">
-                            {Number(product.price).toLocaleString('fa-IR')}
-                        </span>
-                        <span className="product-price-unit">تومان</span>
-                    </div>
                     <Link
                         to={`/contact-us?about=${encodeURIComponent(product.title)}`}
                         className='contact-us-link'

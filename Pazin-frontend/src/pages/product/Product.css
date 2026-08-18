@@ -56,23 +56,6 @@
             margin-bottom: 28px;
         }
 
-        .product-price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .product-price {
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .product-price-unit {
-            font-size: 15px;
-            color: #5b7a73;
-        }
-
         .contact-us-link {
             background: #F5F4EE;
             padding: 10px 20px;

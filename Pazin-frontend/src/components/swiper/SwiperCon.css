@@ -68,18 +68,6 @@
             font-size: 30px;
         }
 
-        .price {
-            font-size: 15px;
-
-            .product-price {
-                margin-left: 8px;
-            }
-
-            .product-price-unit {
-                color: #5b7a73;
-            }
-        }
-
         .follow-link {
             padding: 10px;
             margin: 10px;
