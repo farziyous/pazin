@@ -84,8 +84,9 @@
         .chosen-products {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            gap: 30px;
             margin-top: 0px;
+            justify-content: center;
         }
     }
 
@@ -114,7 +115,7 @@
 
             .chosen-products {
 
-                .chosen-product {
+                .product {
                     width: 400px;
                 }
             }

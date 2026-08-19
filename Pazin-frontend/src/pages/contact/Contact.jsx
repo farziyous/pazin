@@ -6,7 +6,7 @@ import './Contact.css'
 import contactBanner from '../../assets/banners/contact-banner.png'
 import instaLogo from '../../assets/logos/instagram-logo.jpg'
 import teleLogo from '../../assets/logos/telegram-logo.png'
-import eitaaLogo from '../../assets/logos/eitaa-logo.png'
+import rubikaLogo from '../../assets/logos/rubika-logo.png'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -79,13 +79,19 @@ export const Contact = ({ categories, loading }) => {
             <Header categories={categories} />
             <div className="container-contact-page">
                 <div className="contact-info">
-                    <h3 className='phone-title'>شماره تماس: <span className='phone'>09214812429</span></h3>
-                    <p className='address-title'>آدرس: <span className='address'>تهران سهراه افسریه مسعودیه خیابان مجید شمالی کوچه امیر خلوت</span></p>
-                    <p className='email-title'>ایمیل: <span className='email'>something@migga.com</span></p>
+                    <h3 className='phone-title'>شماره تماس: <span className='phone'>09126848540</span></h3>
+                    <p className='address-title'>آدرس: <span className='address'>تهران جاده خاوران دوربرگردان قیامدشت به سمت  تهران دو کیلومتر بالا تر از روستای سنگتراشان</span></p>
+                    <p className='email-title'>ایمیل: <span className='email'>pazin@pazinshoes.ir</span></p>
                     <div className="media">
-                        <a href="#"><img src={instaLogo} alt="اینستاگرام کفش پازین" /></a>
-                        <a href="#"><img src={teleLogo} alt="تلگرام کفش پازین" /></a>
-                        <a href="#"><img src={eitaaLogo} alt="ایتا کفش پازین" /></a>
+                        <a href="https://www.instagram.com/pazin.shoes/"
+                            target="_blank"
+                            rel="noopener noreferrer"><img src={instaLogo} alt="ایستاگرام کفش پازین" /></a>
+                        <a href='https://t.me/pazin'
+                            target="_blank"
+                            rel="noopener noreferrer"><img src={teleLogo} alt="تلگرام کفش پازین" /></a>
+                        <a href='https://web.rubika.ir/#c=c0B6dhy06c2c03238650051afa232c83'
+                            target="_blank"
+                            rel="noopener noreferrer"><img src={rubikaLogo} alt="روبیکا کفش پازین" /></a>
                     </div>
                 </div>
                 <div className="banner-wrap">

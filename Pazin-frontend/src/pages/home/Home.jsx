@@ -116,7 +116,7 @@ export const Home = ({ categories, blogs, loading }) => {
                     <h1>مقالات کاربردی</h1>
                     <div className='blogs'>
                         {displayedBlogs.map((blog) => (
-                            <BlogCard blog={blog} />
+                            <BlogCard blog={blog} key={blog.slug} />
                         ))}
                     </div>
                 </div>
