@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import { SearchInput } from './SearchInput'
 import './Header.css'
-import mainLogo from '../../assets/logos/main-logo.png'
+import mainLogo from '../../assets/logos/main-logo.webp'
 import dropDownSvg from '../../assets/drop-down.svg'
 
 export const Header = ({ categories }) => {
