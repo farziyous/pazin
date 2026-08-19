@@ -31,7 +31,7 @@ export function SwiperCon({ breakpoints, space, images, isBanner }) {
           : images.map((image) => (
               <SwiperSlide key={image.id}>
                 <div className="card">
-                  <Link href="#" className="card-img-link">
+                  <Link href={`/product?product=${image.slug}`} className="card-img-link">
                     <img src={image.default_image.path} alt={image.title} className='swiper-img' />
                   </Link>
                   <p className='name'>{image.title}</p>

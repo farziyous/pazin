@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router'
 import { SearchInput } from './SearchInput'
 import './Header.css'
@@ -17,14 +16,14 @@ export const Header = ({ categories }) => {
                     <div className="collection-links-drop-down">
                         <img src={dropDownSvg} className='drop-down-svg' />
                         <div className="drop-down-list">
-                            {categories.map((category) => <NavLink to="/products">{category.title}</NavLink>)}
+                            {categories.map((category) => <NavLink key={category.slug} to={`/products?category=${category.slug}`}>{category.title}</NavLink>)}
                         </div>
                     </div>
                     <NavLink to="/contact-us">تماس با ما</NavLink>
                     <NavLink to='/blogs'>وبلاگ</NavLink>
                     <NavLink to='/products'>محصولات</NavLink>
                     <div className='collection-links'>
-                        {categories.map((category) => <NavLink to={`/products?category=${category.slug}`}>{category.title}</NavLink>)}
+                        {categories.map((category) => <NavLink key={category.slug} to={`/products?category=${category.slug}`}>{category.title}</NavLink>)}
                     </div>
                 </div>
             </div>

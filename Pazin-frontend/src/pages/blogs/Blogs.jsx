@@ -26,7 +26,7 @@ export const Blogs = ({ categories, blogs, loading }) => {
                 ) : (
                     <div className="blogs">
                         {blogs.map((blog) => (
-                            <BlogCard blog={blog} />
+                            <BlogCard blog={blog} key={blog.slug} />
                         ))}
                     </div>
                 )}
