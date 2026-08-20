@@ -92,6 +92,8 @@ export const Products = ({ categories, loading }) => {
     }
     return (
         <>
+            <title>محصولات پازین</title>
+
             <Header categories={categories} />
             <div className="container">
                 <h1 className="product-page-title">{pageTitle}</h1>

@@ -18,6 +18,8 @@ export const Blogs = ({ categories, blogs, loading }) => {
 
     return (
         <>
+            <title>وبلاگ</title>
+
             <Header categories={categories} />
             <div className="container-blogs-page">
                 <h1 className='blogs-title'>وبلاگ و مقاله ها</h1>

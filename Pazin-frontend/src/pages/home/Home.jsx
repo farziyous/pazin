@@ -58,6 +58,8 @@ export const Home = ({ categories, blogs, loading }) => {
 
     return (
         <>
+            <title>کفش پازین</title>
+
             <Header categories={categories} />
             <div className='container'>
                 <div className="main-banner">
@@ -107,7 +109,7 @@ export const Home = ({ categories, blogs, loading }) => {
                         {featuredCategories.map((category) => {
                             const product = category.featured_product
                             return (
-                                <ProductCard product={product}  key={product.slug} />
+                                <ProductCard product={product} key={product.slug} />
                             )
                         })}
                     </div>

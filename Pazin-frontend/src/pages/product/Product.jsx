@@ -80,6 +80,8 @@ export const Product = ({ categories, loading }) => {
 
     return (
         <>
+            <title>{`محصول ${product.title}`}</title>
+
             <Header categories={categories} />
             <div className="container-product-page">
                 <button type="button" className="back-button" onClick={handleBack}>

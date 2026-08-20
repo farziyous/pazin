@@ -69,6 +69,8 @@ export const Blog = ({ categories, loading }) => {
 
     return (
         <>
+            <title>{blog.title}</title>
+
             <Header categories={categories} />
             <div className="container-blog-page">
                 <button type="button" className="back-button" onClick={handleBack}>

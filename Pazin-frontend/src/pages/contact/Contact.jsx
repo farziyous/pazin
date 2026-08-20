@@ -76,6 +76,8 @@ export const Contact = ({ categories, loading }) => {
 
     return (
         <>
+            <title>ارتباط با پازین</title>
+
             <Header categories={categories} />
             <div className="container-contact-page">
                 <div className="contact-info">
