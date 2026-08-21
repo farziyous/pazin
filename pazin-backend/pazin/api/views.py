@@ -13,6 +13,7 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.select_related('featured_product').prefetch_related(
         Prefetch('featured_product__images', queryset=Image.objects.filter(is_default=True), to_attr='default_image_list'),
+        Prefetch('products', queryset=Product.objects.order_by('-id')),
         Prefetch('products__images', queryset=Image.objects.filter(is_default=True), to_attr='default_image_list'),
     ).order_by('-id')
     serializer_class = CategorySerializer
