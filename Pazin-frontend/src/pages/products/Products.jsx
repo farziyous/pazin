@@ -9,8 +9,15 @@ import './Products.css'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 export const Products = ({ categories, loading }) => {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const activeFilter = searchParams.get('category') || ""
+    const search = searchParams.get('search') || ''
+    const page = Number(searchParams.get('page')) || 1
 
     const [products, setProducts] = useState([])
+    const [count, setCount] = useState(0)
+    const [hasNext, setHasNext] = useState(false)
+    const [hasPrevious, setHasPrevious] = useState(false)
     const [productsLoading, setProductsLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -20,11 +27,18 @@ export const Products = ({ categories, loading }) => {
         const loadProducts = async () => {
             setProductsLoading(true)
             try {
+                const params = { page }
+                if (activeFilter) params.category = activeFilter
+                if (search) params.search = search
+
                 const response = await axios.get(
                     `${API_BASE_URL}/api/products/`,
-                    { signal: controller.signal }
+                    { params, signal: controller.signal }
                 )
-                setProducts(response.data)
+                setProducts(response.data.results)
+                setCount(response.data.count)
+                setHasNext(Boolean(response.data.next))
+                setHasPrevious(Boolean(response.data.previous))
             } catch (err) {
                 if (!axios.isCancel(err)) {
                     setError(err)
@@ -37,14 +51,19 @@ export const Products = ({ categories, loading }) => {
 
         loadProducts()
         return () => controller.abort()
-    }, [])
-
-    const [searchParams, setSearchParams] = useSearchParams()
-    const activeFilter = searchParams.get('category') || ""
-    const search = searchParams.get('search') || ''
+    }, [activeFilter, search, page])
 
     const handleFilterChange = (key) => {
         setSearchParams(key === "" ? {} : { category: key })
+    }
+
+    const goToPage = (newPage) => {
+        const params = {}
+        if (activeFilter) params.category = activeFilter
+        if (search) params.search = search
+        params.page = newPage
+        setSearchParams(params)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     const activeCategory = categories.find((category) => category.slug === activeFilter)
@@ -52,12 +71,11 @@ export const Products = ({ categories, loading }) => {
 
     if (search) {
         pageTitle = `نتیجه برای ${search}`
-    }
-    else {
+    } else {
         pageTitle = activeCategory ? activeCategory.title : "همه محصولات"
     }
 
-    if (loading || productsLoading) {
+    if (loading) {
         return (
             <>
                 <Header categories={categories} />
@@ -77,19 +95,8 @@ export const Products = ({ categories, loading }) => {
         )
     }
 
-    let filteredProducts = []
+    const totalPages = Math.ceil(count / 12) || 1
 
-    if (search) {
-        const normalizedSearch = search.trim().toLowerCase()
-        filteredProducts = products.filter(
-            (product) => product.title.toLowerCase().includes(normalizedSearch)
-        )
-    }
-    else {
-        filteredProducts = products.filter(
-            (product) => !activeFilter || product.category.slug === activeFilter
-        )
-    }
     return (
         <>
             <title>محصولات پازین</title>
@@ -117,14 +124,39 @@ export const Products = ({ categories, loading }) => {
                         ))}
                     </div>
                 }
-                {filteredProducts.length === 0 ? (
+                {productsLoading ? (
+                    <p className="empty-message">در حال بارگذاری...</p>
+                ) : products.length === 0 ? (
                     <p className="empty-message">محصولی یافت نشد.</p>
                 ) : (
-                    <div className="products">
-                        {filteredProducts.map((product) => (
-                            <ProductCard product={product} key={product.slug} />
-                        ))}
-                    </div>
+                    <>
+                        <div className="products">
+                            {products.map((product) => (
+                                <ProductCard product={product} key={product.slug} />
+                            ))}
+                        </div>
+                        {totalPages > 1 && (
+                            <div className="pagination">
+                                <button
+                                    className="page-btn"
+                                    disabled={!hasPrevious}
+                                    onClick={() => goToPage(page - 1)}
+                                >
+                                    قبلی
+                                </button>
+                                <span className="page-info">
+                                    صفحه {page.toLocaleString('fa-IR')} از {totalPages.toLocaleString('fa-IR')}
+                                </span>
+                                <button
+                                    className="page-btn"
+                                    disabled={!hasNext}
+                                    onClick={() => goToPage(page + 1)}
+                                >
+                                    بعدی
+                                </button>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
             <Footer />

@@ -58,6 +58,40 @@
         }
     }
 
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 40px;
+
+        .page-btn {
+            padding: 10px 22px;
+            border: #0a423b 2px solid;
+            border-radius: 10px;
+            background: transparent;
+            color: #0a423b;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover:not(:disabled) {
+                background-color: #0a423b;
+                color: #F9F5F0;
+            }
+
+            &:disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+            }
+        }
+
+        .page-info {
+            color: #0a423b;
+            font-size: 16px;
+        }
+    }
+
     @media (max-width: 1200px) {
 
         .products {

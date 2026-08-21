@@ -42,11 +42,14 @@ class FeaturedProductSerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
     featured_product = FeaturedProductSerializer(read_only=True)
-    products = CategoryProductSerializer(many=True, read_only=True)
+    products = serializers.SerializerMethodField()
     
     class Meta:
         model = Category
         fields = '__all__'
+
+    def get_products(self, obj):
+        return CategoryProductSerializer(obj.limited_products, many=True, context=self.context).data
 
 
 class BlogSerializer(serializers.ModelSerializer):

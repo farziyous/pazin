@@ -87,7 +87,6 @@ export const Home = ({ categories, blogs, loading }) => {
                 </div>
 
                 {categories
-                    .filter((category) => (category.products?.length || 0) >= 8)
                     .map((category) => (
                         <ProductRow key={category.id} title={category.title} products={category.products} slug={category.slug} />
                     ))}
