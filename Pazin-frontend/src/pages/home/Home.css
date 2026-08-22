@@ -3,6 +3,10 @@
         transform: translate(-700px);
     }
 
+    60% {
+        transform: translate(-700px);
+    }
+
     100% {
         transform: translate(0);
     }
@@ -33,7 +37,7 @@
             position: absolute;
             top: -10px;
             left: clamp(10px, 5vw, 50px);
-            animation: left-to-right 2.4s;
+            animation: left-to-right 3s ease-out;
         }
     }
 
